@@ -121,6 +121,7 @@ Since we are comparing the weekdays to the weekends, a decision variable is now 
 The code for that is below.
 
 ``` {r weekdayVsWeekend, results='hide'}
+par( mfrow=c(2,1) )
 DT[, weekday := weekdays(as.Date(date))]
 daysRecord <- DT$weekday
 weekSection <- sapply(daysRecord, function(x) ifelse(x == "Saturday" || x == "Sunday","Weekend","Weekday") )

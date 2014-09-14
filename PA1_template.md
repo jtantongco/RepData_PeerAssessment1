@@ -142,6 +142,7 @@ The code for that is below.
 
 
 ```r
+par( mfrow=c(2,1) )
 DT[, weekday := weekdays(as.Date(date))]
 daysRecord <- DT$weekday
 weekSection <- sapply(daysRecord, function(x) ifelse(x == "Saturday" || x == "Sunday","Weekend","Weekday") )
@@ -162,11 +163,6 @@ plot(x=intervals,
      xlab="intervals (5 minutes)",
      ylab="steps",
      type="l")
-```
-
-![plot of chunk weekdayVsWeekend](figure/weekdayVsWeekend1.png) 
-
-```r
 plot(x=intervals,
      y=weekdayAvgIntervalActivityData,
      main="Modified weekday average step pattern",
@@ -175,7 +171,7 @@ plot(x=intervals,
      type="l")
 ```
 
-![plot of chunk weekdayVsWeekend](figure/weekdayVsWeekend2.png) 
+![plot of chunk weekdayVsWeekend](figure/weekdayVsWeekend.png) 
 
 Comparing the two plots, it would appear that the peak number of steps is higher for weekdays.
 It is also important to note that weekend activity seems to higher intensity activity throughtout the day.
